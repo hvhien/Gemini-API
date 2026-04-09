@@ -333,7 +333,8 @@ class GeminiClient(ChatMixin, GemMixin, ResearchMixin):
 
             try:
                 async with self._lock:
-                    # Refresh all cookies in the background to keep the session alive.
+                    logger.info("Refreshing all cookies in the background to keep the session alive.")
+               
                     new_1psidts = await rotate_1psidts(self.client, self.verbose)
 
                     if not new_1psidts:
