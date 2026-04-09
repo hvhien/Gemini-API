@@ -262,6 +262,8 @@ class GeminiClient(ChatMixin, GemMixin, ResearchMixin):
                     self.refresh_task = None
 
                 if self.auto_refresh:
+                    logger.info("Starting auto_refresh: refreshing token periodically.")
+               
                     self.refresh_task = asyncio.create_task(self.start_auto_refresh())
 
                 await self._init_rpc()
